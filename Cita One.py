@@ -1,5 +1,11 @@
 import os
 
+def Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento):
+    Documento_escribir=open("[Guardar_datos_de_documentos].txt","a")
+    Nombre_documento+="\n"
+    Documento_escribir.write(Nombre_documento)
+    Documento_escribir.close()
+
 def Analizar_existencia_de_archivo(Nombre_documento):
     try:
         Documento=open(Nombre_documento,"r")
@@ -7,6 +13,40 @@ def Analizar_existencia_de_archivo(Nombre_documento):
         return("si hay")
     except:
         return("no hay")
+
+def Proceso_cambiar_nombre_de_la_lista_de_archivos(Nombre_documento_original,Nombre_documento_nuevo):
+    Nombre_documento_original+="\n"
+    Nombre_documento_nuevo+="\n"
+    Lista_de_los_nombres_de_archivos=[]
+    Lista_de_los_nombres_de_archivos.append(Nombre_documento_nuevo)
+    Documento=open("[Guardar_datos_de_documentos].txt","r")
+    Lineas=Documento.readlines()
+    for L in Lineas:
+        if L!=Nombre_documento_original:
+            Lista_de_los_nombres_de_archivos.append(L)
+    Documento.close()
+    Documento=open("[Guardar_datos_de_documentos].txt","w")
+    for L in Lista_de_los_nombres_de_archivos:
+        Nombre_archivo=L
+        Nombre_archivo+="\n"
+        Documento.write(L)
+    Documento.close()
+
+def Proceso_eliminar_nombre_de_la_lista_de_archivos(Nombre_documento):
+    Nombre_documento+="\n"
+    Lista_de_los_nombres_de_archivos=[]
+    Documento=open("[Guardar_datos_de_documentos].txt","r")
+    Lineas=Documento.readlines()
+    for L in Lineas:
+        if L!=Nombre_documento:
+            Lista_de_los_nombres_de_archivos.append(L)
+    Documento.close()
+    Documento=open("[Guardar_datos_de_documentos].txt","w")
+    for L in Lista_de_los_nombres_de_archivos:
+        Nombre_archivo=L
+        Nombre_archivo+="\n"
+        Documento.write(L)
+    Documento.close()
 
 #Bloqueo_proceso_documento2 =si el usuario toma la desicion de "cambiar nombre" el bloqueo se desbloquea debido a que el proceso se debe repetir hasta "Pregunta_inicial2=str(input(""))"
 #Pregunta_crear_archivo1=cuando no exista el archivo con el mismo nombre digitado se realiza el procedimiento de crear archivo.
@@ -23,6 +63,7 @@ def Proceso_crear_archivo(Bloqueo_proceso_documento1,Lista_de_comando2,Pregunta_
                 Documento=open(Nombre_documento,"w")
                 Documento.close()
                 Bloqueo_proceso_documento2="desbloqueado"
+                Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento)
                 print("¡Finalizado!")
             else:
                 print("Ya existe un archivo con ese nombre ¿que desea hacer?")
@@ -40,13 +81,17 @@ o
 
 def Proceso_borrar_archivo(Lista_de_comando2):
     Nombre_documento=Lista_de_comando2[2]
-    Nombre_documento+=".txt"
-    Pregunta_borrar_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
-    if Pregunta_borrar_archivo1=="si hay":
-        os.remove(Nombre_documento)
-        print("¡Finalizado!")
-    else:
-        print("El documento que desea borrar no existe")
+    if Nombre_documento=="[Guardar_datos_de_documentos]":
+        print("No se permite borrar este documento")
+    if Nombre_documento!="[Guardar_datos_de_documentos]":
+        Nombre_documento+=".txt"
+        Pregunta_borrar_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
+        if Pregunta_borrar_archivo1=="si hay":
+            os.remove(Nombre_documento)
+            Proceso_eliminar_nombre_de_la_lista_de_archivos(Nombre_documento)
+            print("¡Finalizado!")
+        else:
+            print("El documento que desea borrar no existe")
 
 def Proceso_renombrar_archivo(Lista_de_comando2):
     Nombre_documento_original=Lista_de_comando2[2]
@@ -57,6 +102,7 @@ def Proceso_renombrar_archivo(Lista_de_comando2):
     Pregunta_renombrar_archivo1=Analizar_existencia_de_archivo(Nombre_documento_original)
     if Pregunta_renombrar_archivo1=="si hay":
         os.rename(Nombre_documento_original,Nombre_documento_nuevo)
+        Proceso_cambiar_nombre_de_la_lista_de_archivos(Nombre_documento_original,Nombre_documento_nuevo)
         print("¡Finalizado!")
     else:
         print("El documento que desea renombrar no existe")
@@ -85,7 +131,7 @@ def Proceso_escribir_en_archivo(Lista_de_comando2):
             print("Actualmente usted se encuentra realizando el proceso de escritura del archivo",Nombre_documento,"""
 Comandos Actuales:
 *salir""")
-        else:
+        if Dictado!="salir" and Dictado!="ayuda":
             Dictado+="\n"
             Documento_escribir=open(Nombre_documento,"a")
             Documento_escribir.write(Dictado)
@@ -104,6 +150,13 @@ def Proceso_leer_archivo(Lista_de_comando2):
     else:
         print("El documento que desea borrar no existe")
 
+def Proceso_mostrar_archivos_actuales(Lista_de_comando2):
+    Documento=open("[Guardar_datos_de_documentos].txt","r")
+    Lineas=Documento.readlines()
+    for L in Lineas:
+        print(L)
+    Documento.close()
+
 #Bloqueo1_proceso_documento1 = si el usuario digita el comando salir el "Bloqueo1_proceso_documento1 se desbloquea".
 
 def Proceso_documento():
@@ -113,13 +166,14 @@ def Proceso_documento():
         Pregunta_inicial2=str(input(""))
         Lista_de_comando2=Pregunta_inicial2.split(" ")
         if Lista_de_comando2[0]=="ayuda":
-            print("""Actualmente usted se encuentra en el menu de archivos.
+            print("""Actualmente usted se encuentra en el menu de documentos.
 Comandos Actuales:
 *Crear documento "ejemplo(data)"
 *Borrar documento "ejemplo(data)"
 *Renombrar documento "ejemplo(data)" a "ejemplo(save)"
 *Escribir en documento "ejemplo(data)"
 *Leer documento "ejemplo(data)"
+*Nombres de documentos actuales
 *Salir""")
         if Lista_de_comando2[0]=="salir":
             Bloqueo_proceso_documento1="desbloqueado"
@@ -147,6 +201,11 @@ Comandos Actuales:
         try:
             if Lista_de_comando2[0]=="leer" and Lista_de_comando2[1]=="documento" and Lista_de_comando2[2]!=[]:
                 Proceso_leer_archivo(Lista_de_comando2)
+        except:
+            print("!ERROR DE SINTAXIS!")
+        try:
+            if Lista_de_comando2[0]=="nombres" and Lista_de_comando2[1]=="de" and Lista_de_comando2[2]=="documentos" and Lista_de_comando2[3]=="actuales":
+                Proceso_mostrar_archivos_actuales(Lista_de_comando2)
         except:
             print("!ERROR DE SINTAXIS!")
 
