@@ -7,7 +7,7 @@ def Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento):
     Documento_escribir.close()
 
 """_________________________________________________________encriptar_________________________________________________________________"""
-def Formula_encriptar_caracter(Caracter,Caracter_a_comparar,Valor_caracter,):
+def Formula_encriptar_caracter(Caracter,Caracter_a_comparar,Valor_caracter):
     if Caracter==Caracter_a_comparar:
         return(Valor_caracter)
     else:
@@ -15,126 +15,314 @@ def Formula_encriptar_caracter(Caracter,Caracter_a_comparar,Valor_caracter,):
 
 def Encriptar_caracter(Caracter):
     Palabra=""
-    Palabra1=""
     #A
-    F_1_1=Formula_encriptar_caracter(Caracter,"A","☺")
-    F_1_2=Formula_encriptar_caracter(Caracter,"a","☻")
-    F_1_3=Formula_encriptar_caracter(Caracter,"á","♥")
-    F_1_4=Formula_encriptar_caracter(Caracter,"ä","♦")
+    F_1_1=Formula_encriptar_caracter(Caracter,"A","#$&%/°")
+    F_1_2=Formula_encriptar_caracter(Caracter,"a","#$[°")
+    F_1_3=Formula_encriptar_caracter(Caracter,"á","A$Y&H°")
+    F_1_4=Formula_encriptar_caracter(Caracter,"ä","E%&_[°")
     #B
-    F_2_1=Formula_encriptar_caracter(Caracter,"B","♣")
-    F_2_2=Formula_encriptar_caracter(Caracter,"b","♠")
+    F_2_1=Formula_encriptar_caracter(Caracter,"B","!*/y°")
+    F_2_2=Formula_encriptar_caracter(Caracter,"b","f;:_#°")
     #C
-    F_3_1=Formula_encriptar_caracter(Caracter,"C","•")
-    F_3_2=Formula_encriptar_caracter(Caracter,"c","◘")
+    F_3_1=Formula_encriptar_caracter(Caracter,"C","@EF_°")
+    F_3_2=Formula_encriptar_caracter(Caracter,"c","Z_%45°")
     #D
-    F_4_1=Formula_encriptar_caracter(Caracter,"D","○")
-    F_4_2=Formula_encriptar_caracter(Caracter,"d","◙")
+    F_4_1=Formula_encriptar_caracter(Caracter,"D","sf_B/57°")
+    F_4_2=Formula_encriptar_caracter(Caracter,"d","FIMNG}{+´°")
     #E
-    F_5_1=Formula_encriptar_caracter(Caracter,"E","♂")
-    F_5_2=Formula_encriptar_caracter(Caracter,"e","♀")
-    F_5_3=Formula_encriptar_caracter(Caracter,"é","♪")
-    F_5_4=Formula_encriptar_caracter(Caracter,"ë","♫")
+    F_5_1=Formula_encriptar_caracter(Caracter,"E","see_e°")
+    F_5_2=Formula_encriptar_caracter(Caracter,"e","#$RG[°")
+    F_5_3=Formula_encriptar_caracter(Caracter,"é","DERG!°")
+    F_5_4=Formula_encriptar_caracter(Caracter,"ë","DF_s°")
     #F
-    F_6_1=Formula_encriptar_caracter(Caracter,"F","☼")
-    F_6_2=Formula_encriptar_caracter(Caracter,"f","►")
+    F_6_1=Formula_encriptar_caracter(Caracter,"F","fr_$#&[°")
+    F_6_2=Formula_encriptar_caracter(Caracter,"f","][*°")
     #G
-    F_7_1=Formula_encriptar_caracter(Caracter,"G","◄")
-    F_7_2=Formula_encriptar_caracter(Caracter,"g","↕")
+    F_7_1=Formula_encriptar_caracter(Caracter,"G","ee_#$1A°")
+    F_7_2=Formula_encriptar_caracter(Caracter,"g","deOrs_1°")
     #H
-    F_8_1=Formula_encriptar_caracter(Caracter,"H","‼")
-    F_8_2=Formula_encriptar_caracter(Caracter,"h","¶")
+    F_8_1=Formula_encriptar_caracter(Caracter,"H","03_soww!°")
+    F_8_2=Formula_encriptar_caracter(Caracter,"h","deg_24°")
     #I
-    F_9_1=Formula_encriptar_caracter(Caracter,"I","§")
-    F_9_2=Formula_encriptar_caracter(Caracter,"i","▬")
-    F_9_3=Formula_encriptar_caracter(Caracter,"í","↨")
-    F_9_4=Formula_encriptar_caracter(Caracter,"ï","↑")
+    F_9_1=Formula_encriptar_caracter(Caracter,"I","%&%F[]°")
+    F_9_2=Formula_encriptar_caracter(Caracter,"i","DQ_3°")
+    F_9_3=Formula_encriptar_caracter(Caracter,"í","$%/[**¡\!°")
+    F_9_4=Formula_encriptar_caracter(Caracter,"ï","o¨[°")
     #J
-    F_10_1=Formula_encriptar_caracter(Caracter,"J","↓")
-    F_10_2=Formula_encriptar_caracter(Caracter,"j","→")
+    F_10_1=Formula_encriptar_caracter(Caracter,"J","RTB_;#°")
+    F_10_2=Formula_encriptar_caracter(Caracter,"j","987_AUSUS!°")
     #K
-    F_11_1=Formula_encriptar_caracter(Caracter,"K","←")
-    F_11_2=Formula_encriptar_caracter(Caracter,"k","∟")
+    F_11_1=Formula_encriptar_caracter(Caracter,"K","rwg_25=¨[*°")
+    F_11_2=Formula_encriptar_caracter(Caracter,"k","12#°")
     #L
-    F_12_1=Formula_encriptar_caracter(Caracter,"L","↔")
-    F_12_2=Formula_encriptar_caracter(Caracter,"l","▲")
+    F_12_1=Formula_encriptar_caracter(Caracter,"L","_$TQWTG/°")
+    F_12_2=Formula_encriptar_caracter(Caracter,"l","wgerh[°")
     #M
-    F_13_1=Formula_encriptar_caracter(Caracter,"M","▼")
-    F_13_2=Formula_encriptar_caracter(Caracter,"m","▲")
+    F_13_1=Formula_encriptar_caracter(Caracter,"M","qwe_[\[°")
+    F_13_2=Formula_encriptar_caracter(Caracter,"m","erg%$/([=°")
     #N
-    F_14_1=Formula_encriptar_caracter(Caracter,"N","!")
-    F_14_2=Formula_encriptar_caracter(Caracter,"n","└")
+    F_14_1=Formula_encriptar_caracter(Caracter,"N","_#U(#$%&°")
+    F_14_2=Formula_encriptar_caracter(Caracter,"n","fdnFDF°")
     #Ñ
-    F_15_1=Formula_encriptar_caracter(Caracter,"Ñ","#")
-    F_15_2=Formula_encriptar_caracter(Caracter,"ñ","$")
+    F_15_1=Formula_encriptar_caracter(Caracter,"Ñ","!$tfs_GG[Ñ¨°")
+    F_15_2=Formula_encriptar_caracter(Caracter,"ñ","%&(_SG_°")
     #O
-    F_16_1=Formula_encriptar_caracter(Caracter,"O","%")
-    F_16_2=Formula_encriptar_caracter(Caracter,"o","&")
-    F_16_3=Formula_encriptar_caracter(Caracter,"ó","/")
-    F_16_4=Formula_encriptar_caracter(Caracter,"ö","(")
+    F_16_1=Formula_encriptar_caracter(Caracter,"O","varjh_1#%°")
+    F_16_2=Formula_encriptar_caracter(Caracter,"o","AR_3457!$$°")
+    F_16_3=Formula_encriptar_caracter(Caracter,"ó","[]*_:[[°")
+    F_16_4=Formula_encriptar_caracter(Caracter,"ö","[[¨\¡*]°")
     #P
-    F_17_1=Formula_encriptar_caracter(Caracter,"P",")")
-    F_17_2=Formula_encriptar_caracter(Caracter,"p","=")
+    F_17_1=Formula_encriptar_caracter(Caracter,"P","[¨\%&//°")
+    F_17_2=Formula_encriptar_caracter(Caracter,"p","!#%/%$&[¨_:°")
     #Q
-    F_18_1=Formula_encriptar_caracter(Caracter,"Q","?")
-    F_18_2=Formula_encriptar_caracter(Caracter,"q","¡")
+    F_18_1=Formula_encriptar_caracter(Caracter,"Q",")/&%&)[_:°")
+    F_18_2=Formula_encriptar_caracter(Caracter,"q","¨[*]*%°")
     #R
-    F_19_1=Formula_encriptar_caracter(Caracter,"R","¨")
-    F_19_2=Formula_encriptar_caracter(Caracter,"r","*")
+    F_19_1=Formula_encriptar_caracter(Caracter,"R","[¨*][°")
+    F_19_2=Formula_encriptar_caracter(Caracter,"r","a_RTH°")
     #S
-    F_20_1=Formula_encriptar_caracter(Caracter,"S","[")
-    F_20_2=Formula_encriptar_caracter(Caracter,"s","]")
+    F_20_1=Formula_encriptar_caracter(Caracter,"S","wagr_WRG°")
+    F_20_2=Formula_encriptar_caracter(Caracter,"s","awb_(o)%/°")
     #T
-    F_21_1=Formula_encriptar_caracter(Caracter,"T","´")
-    F_21_2=Formula_encriptar_caracter(Caracter,"t","+")
+    F_21_1=Formula_encriptar_caracter(Caracter,"T","egbE_&/°")
+    F_21_2=Formula_encriptar_caracter(Caracter,"t","ARHC_weg345°")
     #U
-    F_22_1=Formula_encriptar_caracter(Caracter,"U","{")
-    F_22_2=Formula_encriptar_caracter(Caracter,"u","}")
-    F_22_3=Formula_encriptar_caracter(Caracter,"ú","░")
-    F_22_4=Formula_encriptar_caracter(Caracter,"ü","▒")
+    F_22_1=Formula_encriptar_caracter(Caracter,"U","{\'\{°")
+    F_22_2=Formula_encriptar_caracter(Caracter,"u","{+\'5g°")
+    F_22_3=Formula_encriptar_caracter(Caracter,"ú","35wd°")
+    F_22_4=Formula_encriptar_caracter(Caracter,"ü","CER&/04__:2°")
     #V
-    F_23_1=Formula_encriptar_caracter(Caracter,"V","▓")
-    F_23_2=Formula_encriptar_caracter(Caracter,"v","┤")
+    F_23_1=Formula_encriptar_caracter(Caracter,"V","FWGR_[\[")
+    F_23_2=Formula_encriptar_caracter(Caracter,"v","#$_&_&/°")
     #W
-    F_24_1=Formula_encriptar_caracter(Caracter,"W","├")
-    F_24_2=Formula_encriptar_caracter(Caracter,"w","┼")
+    F_24_1=Formula_encriptar_caracter(Caracter,"W","#$&hht_[°")
+    F_24_2=Formula_encriptar_caracter(Caracter,"w","er_WEH¨_°")
     #X
-    F_25_1=Formula_encriptar_caracter(Caracter,"X","╣")
-    F_25_2=Formula_encriptar_caracter(Caracter,"x","╗")
+    F_25_1=Formula_encriptar_caracter(Caracter,"X","rgrt$%&//((°")
+    F_25_2=Formula_encriptar_caracter(Caracter,"x","%%&//([]:_°")
     #Y
-    F_26_1=Formula_encriptar_caracter(Caracter,"Y","╝")
-    F_26_2=Formula_encriptar_caracter(Caracter,"y","┴")
+    F_26_1=Formula_encriptar_caracter(Caracter,"Y","$#&&&/&%grj°")
+    F_26_2=Formula_encriptar_caracter(Caracter,"y","ARNIOBG_[*°")
     #Z
-    F_27_1=Formula_encriptar_caracter(Caracter,"Z","©")
-    F_27_2=Formula_encriptar_caracter(Caracter,"z","║")
-
-    Palabra+=F_1_1+F_1_2+F_1_3+F_1_4+F_2_1+F_2_2+F_3_1+F_3_2+F_4_1+F_4_2+F_5_1+F_5_2+F_5_3+F_5_4+F_6_1+F_6_2+F_7_1+F_7_2+F_8_1+F_8_2+F_9_1+F_9_2+F_9_3+F_9_4+F_10_1+F_10_2+F_11_1+F_11_2+F_12_1+F_12_2+F_13_1+F_13_2+F_14_1+F_14_2+F_15_1+F_15_2+F_16_1+F_16_2+F_16_3+F_16_4+F_17_1+F_17_2+F_18_1+F_18_2+F_19_1+F_19_2+F_20_1+F_20_2+F_21_1+F_21_2+F_22_1+F_22_2+F_22_3+F_22_4+F_23_1+F_23_2+F_24_1+F_24_2+F_25_1+F_25_2+F_26_1+F_26_2+F_27_1+F_27_2
+    F_27_1=Formula_encriptar_caracter(Caracter,"Z","*{+{´°")
+    F_27_2=Formula_encriptar_caracter(Caracter,"z","{+}´{+A°")
+    #simbolos
+    F_28_1=Formula_encriptar_caracter(Caracter,"?","*77´°")
+    F_28_2=Formula_encriptar_caracter(Caracter,"¿","*ETG°")
+    F_28_3=Formula_encriptar_caracter(Caracter,".","*YUIL°")
+    F_28_4=Formula_encriptar_caracter(Caracter,",","*7AWRG3°")
+    
+    Palabra+=F_1_1+F_1_2+F_1_3+F_1_4+F_2_1+F_2_2+F_3_1+F_3_2+F_4_1+F_4_2+F_5_1+F_5_2+F_5_3+F_5_4+F_6_1+F_6_2+F_7_1+F_7_2+F_8_1+F_8_2+F_9_1+F_9_2+F_9_3+F_9_4+F_10_1+F_10_2+F_11_1+F_11_2+F_12_1+F_12_2+F_13_1+F_13_2+F_14_1+F_14_2+F_15_1+F_15_2+F_16_1+F_16_2+F_16_3+F_16_4+F_17_1+F_17_2+F_18_1+F_18_2+F_19_1+F_19_2+F_20_1+F_20_2+F_21_1+F_21_2+F_22_1+F_22_2+F_22_3+F_22_4+F_23_1+F_23_2+F_24_1+F_24_2+F_25_1+F_25_2+F_26_1+F_26_2+F_27_1+F_27_2+F_28_1+F_28_2+F_28_3+F_28_4
     return(Palabra)
 
 def Proceso_generar_lista_de_encriptar(Nombre_documento):
-    Nombre_documento+=".txt"
     Pregunta_existencia_de_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
-    if Pregunta_existencia_de_archivo1=="si hay":
-        Documento=open(Nombre_documento,"r")
-        Lineas=Documento.readlines()
-        Lista_de_palabras_a_encriptar=[]
-        for L in Lineas:
-            Lista_de_palabras_a_encriptar.append(L)
-        Documento.close()
-        return(Lista_de_palabras_a_encriptar)
-    else:
-        print("El documento que desea encriptar no existe")
+    Documento=open(Nombre_documento,"r")
+    Lineas=Documento.readlines()
+    Lista_de_palabras_a_encriptar=[]
+    for L in Lineas:
+        Lista_de_palabras_a_encriptar.append(L)
+    Documento.close()
+    return(Lista_de_palabras_a_encriptar)
 
 def Proceso_encriptar_documento_(Lista_de_comando2):
     Palabra_encriptada_caracter_por_caracter=""
     Nombre_documento=Lista_de_comando2[2]
-    Lista_de_palabras_a_encriptar=Proceso_generar_lista_de_encriptar(Nombre_documento)
-    print(Lista_de_palabras_a_encriptar)
-    for Palabra in Lista_de_palabras_a_encriptar:
-        for Caracter in Palabra:
-            Palabra_encriptada_caracter_por_caracter+=Encriptar_caracter(Caracter)
-        Palabra_encriptada_caracter_por_caracter+="ð"
-    print(Palabra_encriptada_caracter_por_caracter)
+    Nombre_documento+=".txt"
+    Pregunta_existencia_de_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
+    if Pregunta_existencia_de_archivo1=="si hay":
+        Lista_de_palabras_a_encriptar=Proceso_generar_lista_de_encriptar(Nombre_documento)
+        if Lista_de_palabras_a_encriptar==[]:
+            print("No contiene texto para encriptar")
+        for Palabra in Lista_de_palabras_a_encriptar:
+            for Caracter in Palabra:
+                if Caracter=="\n":
+                    Palabra_encriptada_caracter_por_caracter+="ç"
+                if Caracter==" ":
+                    Palabra_encriptada_caracter_por_caracter+="ð"
+                if Caracter!="\n" and Caracter!=" ":
+                    Palabra_encriptada_caracter_por_caracter+=Encriptar_caracter(Caracter)
+        Nombre_documento_archivo=""
+        for N in Nombre_documento:
+            if N!="." and N!="t" and N!="x":
+                Nombre_documento_archivo+=N
+        Nombre_documento_archivo+="_encriptado.txt"
+        Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento_archivo)
+        print("Documento encriptado en ",Nombre_documento_archivo)
+        Documento=open(Nombre_documento_archivo,"w")
+        Documento.write(Palabra_encriptada_caracter_por_caracter)
+        Documento.close()
+        print("¡Finalizado!")
+    else:
+        print("El documento que desea encriptar no existe")
+
+"""_________________________________________________desencriptar_________________________________________________________________________________"""
+def Ingresar_nombre_encriptado_o_desencriptado_a_la_lista(Nombre_documento):
+    Documento=open("[Guardar_datos_de_documentos].txt","w")
+    Documento.write(Nombre_documento)
+    Documento.close()
+
+def Formula_desencriptar_caracter(Caracter,Valor_caracter,Caracter_a_comparar):
+    if Caracter==Caracter_a_comparar:
+        return(Valor_caracter)
+    else:
+        return("")
+
+def Desencriptar_caracter(Caracter):
+    Palabra=""
+    #A
+    F_1_1=Formula_desencriptar_caracter(Caracter,"A","#$&%/")
+    F_1_2=Formula_desencriptar_caracter(Caracter,"a","#$[")
+    F_1_3=Formula_desencriptar_caracter(Caracter,"á","A$Y&H")
+    F_1_4=Formula_desencriptar_caracter(Caracter,"ä","E%&_[")
+    #B
+    F_2_1=Formula_desencriptar_caracter(Caracter,"B","!*/y")
+    F_2_2=Formula_desencriptar_caracter(Caracter,"b","f;:_#")
+    #C
+    F_3_1=Formula_desencriptar_caracter(Caracter,"C","@EF_")
+    F_3_2=Formula_desencriptar_caracter(Caracter,"c","Z_%45")
+    #D
+    F_4_1=Formula_desencriptar_caracter(Caracter,"D","sf_B/57")
+    F_4_2=Formula_desencriptar_caracter(Caracter,"d","FIMNG}{+´")
+    #E
+    F_5_1=Formula_desencriptar_caracter(Caracter,"E","see_e")
+    F_5_2=Formula_desencriptar_caracter(Caracter,"e","#$RG[")
+    F_5_3=Formula_desencriptar_caracter(Caracter,"é","DERG!")
+    F_5_4=Formula_desencriptar_caracter(Caracter,"ë","DF_s")
+    #F
+    F_6_1=Formula_desencriptar_caracter(Caracter,"F","fr_$#&[")
+    F_6_2=Formula_desencriptar_caracter(Caracter,"f","][*")
+    #G
+    F_7_1=Formula_desencriptar_caracter(Caracter,"G","ee_#$1A")
+    F_7_2=Formula_desencriptar_caracter(Caracter,"g","deOrs_1")
+    #H
+    F_8_1=Formula_desencriptar_caracter(Caracter,"H","03_soww!")
+    F_8_2=Formula_desencriptar_caracter(Caracter,"h","deg_24")
+    #I
+    F_9_1=Formula_desencriptar_caracter(Caracter,"I","%&%F[]")
+    F_9_2=Formula_desencriptar_caracter(Caracter,"i","DQ_3")
+    F_9_3=Formula_desencriptar_caracter(Caracter,"í","$%/[**¡\!")
+    F_9_4=Formula_desencriptar_caracter(Caracter,"ï","o¨[")
+    #J
+    F_10_1=Formula_desencriptar_caracter(Caracter,"J","RTB_;#")
+    F_10_2=Formula_desencriptar_caracter(Caracter,"j","987_AUSUS!")
+    #K
+    F_11_1=Formula_desencriptar_caracter(Caracter,"K","rwg_25=¨[*")
+    F_11_2=Formula_desencriptar_caracter(Caracter,"k","12#")
+    #L
+    F_12_1=Formula_desencriptar_caracter(Caracter,"L","_$TQWTG/")
+    F_12_2=Formula_desencriptar_caracter(Caracter,"l","wgerh[")
+    #M
+    F_13_1=Formula_desencriptar_caracter(Caracter,"M","qwe_[\[")
+    F_13_2=Formula_desencriptar_caracter(Caracter,"m","erg%$/([=")
+    #N
+    F_14_1=Formula_desencriptar_caracter(Caracter,"N","_#U(#$%&")
+    F_14_2=Formula_desencriptar_caracter(Caracter,"n","fdnFDF")
+    #Ñ
+    F_15_1=Formula_desencriptar_caracter(Caracter,"Ñ","!$tfs_GG[Ñ¨")
+    F_15_2=Formula_desencriptar_caracter(Caracter,"ñ","%&(_SG_")
+    #O
+    F_16_1=Formula_desencriptar_caracter(Caracter,"O","varjh_1#%")
+    F_16_2=Formula_desencriptar_caracter(Caracter,"o","AR_3457!$$")
+    F_16_3=Formula_desencriptar_caracter(Caracter,"ó","[]*_:[[")
+    F_16_4=Formula_desencriptar_caracter(Caracter,"ö","[[¨\¡*]")
+    #P
+    F_17_1=Formula_desencriptar_caracter(Caracter,"P","[¨\%&//")
+    F_17_2=Formula_desencriptar_caracter(Caracter,"p","!#%/%$&[¨_:")
+    #Q
+    F_18_1=Formula_desencriptar_caracter(Caracter,"Q",")/&%&)[_:")
+    F_18_2=Formula_desencriptar_caracter(Caracter,"q","¨[*]*%")
+    #R
+    F_19_1=Formula_desencriptar_caracter(Caracter,"R","[¨*][")
+    F_19_2=Formula_desencriptar_caracter(Caracter,"r","a_RTH")
+    #S
+    F_20_1=Formula_desencriptar_caracter(Caracter,"S","wagr_WRG")
+    F_20_2=Formula_desencriptar_caracter(Caracter,"s","awb_(o)%/")
+    #T
+    F_21_1=Formula_desencriptar_caracter(Caracter,"T","egbE_&/")
+    F_21_2=Formula_desencriptar_caracter(Caracter,"t","ARHC_weg345")
+    #U
+    F_22_1=Formula_desencriptar_caracter(Caracter,"U","{\'\{")
+    F_22_2=Formula_desencriptar_caracter(Caracter,"u","{+\'5g")
+    F_22_3=Formula_desencriptar_caracter(Caracter,"ú","35wd")
+    F_22_4=Formula_desencriptar_caracter(Caracter,"ü","CER&/04__:2")
+    #V
+    F_23_1=Formula_desencriptar_caracter(Caracter,"V","FWGR_[\[")
+    F_23_2=Formula_desencriptar_caracter(Caracter,"v","#$_&_&/")
+    #W
+    F_24_1=Formula_desencriptar_caracter(Caracter,"W","#$&hht_[")
+    F_24_2=Formula_desencriptar_caracter(Caracter,"w","er_WEH¨_")
+    #X
+    F_25_1=Formula_desencriptar_caracter(Caracter,"X","rgrt$%&//((")
+    F_25_2=Formula_desencriptar_caracter(Caracter,"x","%%&//([]:_")
+    #Y
+    F_26_1=Formula_desencriptar_caracter(Caracter,"Y","$#&&&/&%grj")
+    F_26_2=Formula_desencriptar_caracter(Caracter,"y","ARNIOBG_[*")
+    #Z
+    F_27_1=Formula_desencriptar_caracter(Caracter,"Z","*{+{´")
+    F_27_2=Formula_desencriptar_caracter(Caracter,"z","{+}´{+A")
+    #simbolos
+    F_28_0_1=Formula_desencriptar_caracter(Caracter,"_","ð")
+    F_28_0_2=Formula_desencriptar_caracter(Caracter,"<","ç")
+    F_28_1=Formula_desencriptar_caracter(Caracter,"?","*77´")
+    F_28_2=Formula_desencriptar_caracter(Caracter,"¿","*ETG")
+    F_28_3=Formula_desencriptar_caracter(Caracter,".","*YUIL")
+    F_28_4=Formula_desencriptar_caracter(Caracter,",","*7AWRG3")
+
+
+    Palabra+=F_1_1+F_1_2+F_1_3+F_1_4+F_2_1+F_2_2+F_3_1+F_3_2+F_4_1+F_4_2+F_5_1+F_5_2+F_5_3+F_5_4+F_6_1+F_6_2+F_7_1+F_7_2+F_8_1+F_8_2+F_9_1+F_9_2+F_9_3+F_9_4+F_10_1+F_10_2+F_11_1+F_11_2+F_12_1+F_12_2+F_13_1+F_13_2+F_14_1+F_14_2+F_15_1+F_15_2+F_16_1+F_16_2+F_16_3+F_16_4+F_17_1+F_17_2+F_18_1+F_18_2+F_19_1+F_19_2+F_20_1+F_20_2+F_21_1+F_21_2+F_22_1+F_22_2+F_22_3+F_22_4+F_23_1+F_23_2+F_24_1+F_24_2+F_25_1+F_25_2+F_26_1+F_26_2+F_27_1+F_27_2+F_28_1+F_28_2+F_28_3+F_28_4+F_28_0_1+F_28_0_2
+    return(Palabra)
+
+def Proceso_generar_lista_a_desencriptar(Nombre_documento_encriptado):
+    Documento=open(Nombre_documento_encriptado,"r")
+    Lineas=Documento.readlines()
+    Lista_de_palabras_a_encriptar=[]
+    for L in Lineas:
+        Lista_de_palabras_a_encriptar.append(L)
+    Documento.close()
+    return(Lista_de_palabras_a_encriptar)
+
+def Desencriptar_archivo(Nombre_documento_encriptado):
+    Lista_de_palabras_a_encriptar=Proceso_generar_lista_a_desencriptar(Nombre_documento_encriptado)
+    Lista_contenedora_de_caracteres_temporal=[]
+    Cadena_contenedora_de_caracteres_temporal=""
+    for Buscador in Lista_de_palabras_a_encriptar:
+        for Buscador_1 in Buscador:
+            if Buscador_1=="°":
+                Lista_contenedora_de_caracteres_temporal.append(Cadena_contenedora_de_caracteres_temporal)
+                Cadena_contenedora_de_caracteres_temporal=""
+            if Buscador_1=="ð":
+                Lista_contenedora_de_caracteres_temporal.append("ð")
+            if Buscador_1=="ç":
+                Lista_contenedora_de_caracteres_temporal.append("ç")
+            if Buscador_1!="°" and Buscador_1!="ð" and Buscador_1!="ç":
+                Cadena_contenedora_de_caracteres_temporal+=Buscador_1
+    return(Lista_contenedora_de_caracteres_temporal)
+
+def Proceso_desencriptar_documento_(Lista_de_comando2):
+    Lista_finalmente_desencriptada=[]
+    Nombre_documento=Lista_de_comando2[2]
+    Nombre_documento_encriptado=Nombre_documento
+    Nombre_documento+="_desencriptado.txt"
+    Nombre_documento_encriptado+="_encriptado.txt"
+    Pregunta_existencia_de_archivo1=Analizar_existencia_de_archivo(Nombre_documento_encriptado)
+    if Pregunta_existencia_de_archivo1=="si hay":
+        Lista_palabras_encriptadas=Desencriptar_archivo(Nombre_documento_encriptado)
+        for Palabra in Lista_palabras_encriptadas:
+            Lista_finalmente_desencriptada.append(Desencriptar_caracter(Palabra))
+        Palabra_desencriptada_final=""
+        for Letra in Lista_finalmente_desencriptada:
+            Palabra_desencriptada_final+=Letra
+        Palabra_desencriptada_final=Palabra_desencriptada_final.replace("<","\n")
+        Palabra_desencriptada_final=Palabra_desencriptada_final.replace("_"," ")
+        Documento=open(Nombre_documento,"w")
+        Documento.write(Palabra_desencriptada_final)
+        Documento.close()
+        Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento)
+        print("Documento desencriptado en ",Nombre_documento)
+        print("!Finalizado¡")
+    else:
+        print("El documento que desea encriptar no existe")
 
 #---------------------------------------------------------proceso1----------------------------------------------------------------------------------
 
@@ -315,7 +503,8 @@ Comandos Actuales:
 *Escribir en documento "ejemplo(data)"
 *Leer documento "ejemplo(data)"
 *Nombres de documentos actuales
-"Encriptar documento "ejemplo(data)""
+*Encriptar documento "ejemplo(data)"
+*Desencriptar documento "ejemplo(data)"
 *Salir""")
         if Lista_de_comando2[0]=="salir":
             Bloqueo_proceso_documento1="desbloqueado"
@@ -355,8 +544,12 @@ Comandos Actuales:
                 Proceso_encriptar_documento_(Lista_de_comando2)
         except:
             print("!ERROR DE SINTAXIS!")
-
-#_________________________menu_principal________________________________________________________________________
+#        try:
+        if Lista_de_comando2[0]=="desencriptar" and Lista_de_comando2[1]=="documento" and Lista_de_comando2[2]!=[]:
+            Proceso_desencriptar_documento_(Lista_de_comando2)
+#        except:
+#            print("!ERROR DE SINTAXIS!")
+#_______________________________________menu_principal____________________________________________________________
 
 #Bloqueo1 = estara bloqueado siempre y cuando el usurio no digite "finalizar"
 #Proceso Principal
