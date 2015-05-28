@@ -2,3 +2,8 @@ Bienvenido al tutorial para instalar el administrador de citas
 1 paso instalar python version 3.4.2 https://www.python.org/download/releases/3.4.2/
 2 Ejecutar el archivo CitaOne
 3 Ojo no borrar ningun archivo manualmente, todo por codigo.
+*Archivos:
+-[Datos_Citas]
+-Guardar_datos_de documentos]
+-Cita One
+-Instalacion_del_programa
