@@ -6,6 +6,16 @@ def Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento):
     Documento_escribir.write(Nombre_documento)
     Documento_escribir.close()
 
+def Evaluar_documentos_importantes(Nombre_documento):
+    if Nombre_documento=="[Guardar_datos_de_documentos]":
+        print("No se permite borrar este documento")
+        return("si")
+    if Nombre_documento=="[Datos_Citas]":
+        print("No se permite borrar este documento")
+        return("si")
+    if Nombre_documento!="[Guardar_datos_de_documentos]" and Nombre_documento!="[Datos_Citas]":
+        return("No es documento importante")
+
 """_________________________________________________________encriptar_________________________________________________________________"""
 def Formula_encriptar_caracter(Caracter,Caracter_a_comparar,Valor_caracter):
     if Caracter==Caracter_a_comparar:
@@ -125,7 +135,7 @@ def Proceso_generar_lista_de_encriptar(Nombre_documento):
     Documento.close()
     return(Lista_de_palabras_a_encriptar)
 
-def Proceso_encriptar_documento_(Lista_de_comando2):
+def Proceso_encriptar_documento(Lista_de_comando2):
     Palabra_encriptada_caracter_por_caracter=""
     Nombre_documento=Lista_de_comando2[2]
     Nombre_documento+=".txt"
@@ -299,7 +309,7 @@ def Desencriptar_archivo(Nombre_documento_encriptado):
                 Cadena_contenedora_de_caracteres_temporal+=Buscador_1
     return(Lista_contenedora_de_caracteres_temporal)
 
-def Proceso_desencriptar_documento_(Lista_de_comando2):
+def Proceso_desencriptar_documento(Lista_de_comando2):
     Lista_finalmente_desencriptada=[]
     Nombre_documento=Lista_de_comando2[2]
     Nombre_documento_encriptado=Nombre_documento
@@ -322,7 +332,7 @@ def Proceso_desencriptar_documento_(Lista_de_comando2):
         print("Documento desencriptado en ",Nombre_documento)
         print("!Finalizado¡")
     else:
-        print("El documento que desea encriptar no existe")
+        print("El documento que desea desencriptar no existe")
 
 #---------------------------------------------------------proceso1----------------------------------------------------------------------------------
 
@@ -377,36 +387,38 @@ def Proceso_eliminar_nombre_de_la_lista_de_archivos(Nombre_documento):
 #_____________________desicion_crear_documento____________________________________________________________________
 def Proceso_crear_archivo(Bloqueo_proceso_documento1,Lista_de_comando2,Pregunta_crear_archivo2):
     Nombre_documento=Lista_de_comando2[2]
-    print("Creando archivo de nombre",Nombre_documento,"...")
-    Nombre_documento+=".txt"
-    Pregunta_crear_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
-    Bloqueo_proceso_documento2="bloqueado"
-    while Bloqueo_proceso_documento2=="bloqueado":
-            if Pregunta_crear_archivo1=="no hay" or Pregunta_crear_archivo2=="si sobrescribir":
-                Documento=open(Nombre_documento,"w")
-                Documento.close()
-                Bloqueo_proceso_documento2="desbloqueado"
-                Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento)
-                print("¡Finalizado!")
-            else:
-                print("Ya existe un archivo con ese nombre ¿que desea hacer?")
-                print("""*Cambiar(Digitar otro nombre para su archivo)
-o
-*sobrescribir(Borrar archivo anterior y remplazarlo por uno en blanco actual)""")
-                Desicion_escribir_cambiar_nombre_archivo=str(input(""))
-                Lista_de_desicion1=Desicion_escribir_cambiar_nombre_archivo.split(" ")
-                if Lista_de_desicion1[0]=="cambiar":
-                    print("Cambiando...")
+    Pregunta_importante= Evaluar_documentos_importantes(Nombre_documento)
+    while Pregunta_importante=="No es documento importante":
+        print("Creando archivo de nombre",Nombre_documento,"...")
+        Nombre_documento+=".txt"
+        Pregunta_crear_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
+        Bloqueo_proceso_documento2="bloqueado"
+        while Bloqueo_proceso_documento2=="bloqueado":
+                if Pregunta_crear_archivo1=="no hay" or Pregunta_crear_archivo2=="si sobrescribir":
+                    Documento=open(Nombre_documento,"w")
+                    Documento.close()
                     Bloqueo_proceso_documento2="desbloqueado"
-                if Lista_de_desicion1[0]=="sobrescribir":
-                    print("El archivo a sido sobrescrito")
-                    Pregunta_crear_archivo2="si sobrescribir"
+                    Proceso_ingresar_archivo_a_lista_de_archivos(Nombre_documento)
+                    print("¡Finalizado!")
+                else:
+                    print("Ya existe un archivo con ese nombre ¿que desea hacer?")
+                    print("""*Cambiar(Digitar otro nombre para su archivo)
+    o
+    *sobrescribir(Borrar archivo anterior y remplazarlo por uno en blanco actual)""")
+                    Desicion_escribir_cambiar_nombre_archivo=str(input(""))
+                    Lista_de_desicion1=Desicion_escribir_cambiar_nombre_archivo.split(" ")
+                    if Lista_de_desicion1[0]=="cambiar":
+                        print("Cambiando...")
+                        Bloqueo_proceso_documento2="desbloqueado"
+                    if Lista_de_desicion1[0]=="sobrescribir":
+                        print("El archivo a sido sobrescrito")
+                        Pregunta_crear_archivo2="si sobrescribir"
+        Pregunta_importante="finalizo"
 
 def Proceso_borrar_archivo(Lista_de_comando2):
     Nombre_documento=Lista_de_comando2[2]
-    if Nombre_documento=="[Guardar_datos_de_documentos]":
-        print("No se permite borrar este documento")
-    if Nombre_documento!="[Guardar_datos_de_documentos]":
+    Pregunta_importante= Evaluar_documentos_importantes(Nombre_documento)
+    while Pregunta_importante=="No es documento importante":
         Nombre_documento+=".txt"
         Pregunta_borrar_archivo1=Analizar_existencia_de_archivo(Nombre_documento)
         if Pregunta_borrar_archivo1=="si hay":
@@ -415,13 +427,13 @@ def Proceso_borrar_archivo(Lista_de_comando2):
             print("¡Finalizado!")
         else:
             print("El documento que desea borrar no existe")
+        Pregunta_importante="finalizo"
 
 def Proceso_renombrar_archivo(Lista_de_comando2):
     Nombre_documento_original=Lista_de_comando2[2]
     Nombre_documento_nuevo=Lista_de_comando2[4]
-    if Nombre_documento_original=="[Guardar_datos_de_documentos]":
-        print("No se permite borrar este documento")
-    if Nombre_documento_original!="[Guardar_datos_de_documentos]":
+    Pregunta_importante= Evaluar_documentos_importantes(Nombre_documento_original)
+    while Pregunta_importante=="No es documento importante":
         print("renombrando documento",Nombre_documento_original,"a",Nombre_documento_nuevo,"...")
         Nombre_documento_original+=".txt"
         Nombre_documento_nuevo+=".txt"
@@ -432,6 +444,7 @@ def Proceso_renombrar_archivo(Lista_de_comando2):
             print("¡Finalizado!")
         else:
             print("El documento que desea renombrar no existe")
+        Pregunta_importante="finalizo"
 
 #Bloqueo1_proceso_renombrar_archivo= este bloqueo se desbloquea cuando el usurio no digite el comando de ayuda
 #Bloqueo2_proceso_renombrar_archivo= este bloqueo se desbloquea cuando hay un archivo ya que se puede escribir en ese archivo y se bloquea cuando no se encuentra el archivo
@@ -474,7 +487,7 @@ def Proceso_leer_archivo(Lista_de_comando2):
             print(L)
         Documento.close()
     else:
-        print("El documento que desea borrar no existe")
+        print("El documento que desea leer no existe")
 
 def Proceso_mostrar_archivos_actuales(Lista_de_comando2):
     Documento=open("[Guardar_datos_de_documentos].txt","r")
@@ -541,16 +554,155 @@ Comandos Actuales:
             print("!ERROR DE SINTAXIS!")
         try:
             if Lista_de_comando2[0]=="encriptar" and Lista_de_comando2[1]=="documento" and Lista_de_comando2[2]!=[]:
-                Proceso_encriptar_documento_(Lista_de_comando2)
+                Proceso_encriptar_documento(Lista_de_comando2)
         except:
             print("!ERROR DE SINTAXIS!")
-#        try:
-        if Lista_de_comando2[0]=="desencriptar" and Lista_de_comando2[1]=="documento" and Lista_de_comando2[2]!=[]:
-            Proceso_desencriptar_documento_(Lista_de_comando2)
-#        except:
-#            print("!ERROR DE SINTAXIS!")
-#_______________________________________menu_principal____________________________________________________________
+        try:
+            if Lista_de_comando2[0]=="desencriptar" and Lista_de_comando2[1]=="documento" and Lista_de_comando2[2]!=[]:
+                Proceso_desencriptar_documento(Lista_de_comando2)
+        except:
+            print("!ERROR DE SINTAXIS!")
 
+#---------------------------------------------------proceso-1-------------------------------------------------------
+
+def Proceso_mostrar_categorias_llenas(Datos):
+    for Categoria,Valor in Datos.items():
+        print(Categoria,Valor)
+
+def Proceso_verificar_areas_vacias(Datos,Categoria_evaluada):
+    Si_hay=0
+    for Categoria in Datos:
+        if Categoria==Categoria_evaluada:
+            Si_hay+=1
+    if Si_hay==0:
+        print(Categoria_evaluada)
+
+def Proceso_mostrar_categorias_faltantes(Datos):
+    Proceso_verificar_areas_vacias(Datos,"Nombre")
+    Proceso_verificar_areas_vacias(Datos,"Apellido")
+    Proceso_verificar_areas_vacias(Datos,"Empresa")
+    Proceso_verificar_areas_vacias(Datos,"Cargo")
+    Proceso_verificar_areas_vacias(Datos,"Departamento")
+    Proceso_verificar_areas_vacias(Datos,"Telefono")
+    Proceso_verificar_areas_vacias(Datos,"Direccion")
+    Proceso_verificar_areas_vacias(Datos,"Ciudad")
+    Proceso_verificar_areas_vacias(Datos,"Correo")
+    Proceso_verificar_areas_vacias(Datos,"Nit")
+    Proceso_verificar_areas_vacias(Datos,"Observaciones")
+    
+def formato_crear_cita(Valor_asignado,Datos,Lista_de_comando_cita,posicion_comando):
+    posicion_comando+=1
+    Datos[Valor_asignado]=[Lista_de_comando_cita[posicion_comando]]
+    return(Datos)
+
+def Proceso_crear_una_cita():
+    Bloqueo1_crear_cita="bloqueado"
+    Datos={}
+    while Bloqueo1_crear_cita=="bloqueado":
+        Pregunta_cita=str(input(""))
+        posicion_comando=0
+        Lista_de_comando_cita=Pregunta_cita.split(" ")
+        for Comando in Lista_de_comando_cita:
+            if Comando=="ayuda":
+                print("""Actualmente usted se encuentra realizando el proceso de crear cita
+Comando Actuales:
+*Categorias sin llenar
+*Categorias llenas
+""")
+            if Comando=="salir":
+                print("!Finalizado¡")
+                Bloqueo1_crear_cita="desbloqueado"
+                Documento_escribir_citas=open("[Datos_Citas].txt","a")
+                Documento_escribir_citas.write(str(Datos))
+                Documento_escribir_citas.close()
+            try:
+                if Comando=="nombre":
+                    formato_crear_cita("Nombre",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="apellido":
+                    formato_crear_cita("Apellido",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="empresa":
+                    formato_crear_cita("Empresa",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="cargo":
+                    formato_crear_cita("Cargo",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="departamento":
+                    formato_crear_cita("Departamento",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="telefono":
+                    formato_crear_cita("Telefono",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="direccion":
+                    formato_crear_cita("Direccion",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="ciudad":
+                    formato_crear_cita("Ciudad",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="correo":
+                    formato_crear_cita("Correo",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="nit":
+                    formato_crear_cita("Nit",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+            try:
+                if Comando=="observaciones":
+                    formato_crear_cita("Observaciones",Datos,Lista_de_comando_cita,posicion_comando)
+            except:
+                print("!ERROR DE SINTAXIS!")
+        try:
+            if Lista_de_comando_cita[0]=="categorias" and Lista_de_comando_cita[1]=="sin" and Lista_de_comando_cita[2]=="llenar":
+                Proceso_mostrar_categorias_faltantes(Datos)
+        except:
+            print("!ERROR DE SINTAXIS!")
+        try:
+            if Lista_de_comando_cita[0]=="categorias" and Lista_de_comando_cita[1]=="llenas":
+                Proceso_mostrar_categorias_llenas(Datos)
+        except:
+            print("!ERROR DE SINTAXIS!")
+
+#___________________________________________menu_citas______________________________________________________________
+
+def Proceso_cita():
+    Bloqueo_proceso_documento1="bloqueado"
+    while Bloqueo_proceso_documento1=="bloqueado":
+        Pregunta_inicial2=str(input(""))
+        Lista_de_comando2=Pregunta_inicial2.split(" ")
+        if Lista_de_comando2[0]=="ayuda":
+            print("""Actualmente usted se encuentra en el menu citas.
+Comandos Actuales:
+*Crear cita
+""")
+        if Lista_de_comando2[0]=="salir":
+            Bloqueo_proceso_documento1="desbloqueado"
+            print("Finalizado")
+        try:
+            if Lista_de_comando2[0]=="crear"and Lista_de_comando2[1]=="cita":
+                Proceso_crear_una_cita()
+        except:
+            print("!ERROR DE SINTAXIS!")
+
+#________________________________________menu_principal____________________________________________________________
 #Bloqueo1 = estara bloqueado siempre y cuando el usurio no digite "finalizar"
 #Proceso Principal
 Bloqueo1="bloqueado"
@@ -569,5 +721,4 @@ Comandos:
     if Lista_de_comando1[0]=="documento":
         Proceso_documento()
     if Lista_de_comando1[0]=="cita":
-        print("Crear Cita")
-
+        Proceso_cita()
