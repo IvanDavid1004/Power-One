@@ -334,7 +334,7 @@ def Proceso_desencriptar_documento(Lista_de_comando2):
     else:
         print("El documento que desea desencriptar no existe")
 
-#---------------------------------------------------------proceso1----------------------------------------------------------------------------------
+#---------------------------------------------------------proceso1---documento-----------------------------------------------------------------------------
 
 def Analizar_existencia_de_archivo(Nombre_documento):
     try:
@@ -378,7 +378,7 @@ def Proceso_eliminar_nombre_de_la_lista_de_archivos(Nombre_documento):
         Documento.write(L)
     Documento.close()
     
-#------------------------------------------proceso2-----------------------------------------------------------------------------------------------------
+#------------------------------------------proceso2---documento----------------------------------------------------------------------------------------------
 
 #Bloqueo_proceso_documento2 =si el usuario toma la desicion de "cambiar nombre" el bloqueo se desbloquea debido a que el proceso se debe repetir hasta "Pregunta_inicial2=str(input(""))"
 #Pregunta_crear_archivo1=cuando no exista el archivo con el mismo nombre digitado se realiza el procedimiento de crear archivo.
@@ -563,7 +563,7 @@ Comandos Actuales:
         except:
             print("!ERROR DE SINTAXIS!")
 
-#---------------------------------------------------proceso-1-------------------------------------------------------
+#---------------------------------------------------proceso-1--crear-cita--------------------------------------------------
 
 def Proceso_mostrar_categorias_llenas(Datos):
     for Categoria,Valor in Datos.items():
@@ -589,10 +589,17 @@ def Proceso_mostrar_categorias_faltantes(Datos):
     Proceso_verificar_areas_vacias(Datos,"Correo")
     Proceso_verificar_areas_vacias(Datos,"Nit")
     Proceso_verificar_areas_vacias(Datos,"Observaciones")
+#---------------------------------------------------proceso-2--crear-cita--------------------------------------------------
     
-def formato_crear_cita(Valor_asignado,Datos,Lista_de_comando_cita,posicion_comando):
-    posicion_comando+=1
-    Datos[Valor_asignado]=[Lista_de_comando_cita[posicion_comando]]
+def formato_crear_cita(Valor_asignado,Datos,Lista_de_comando_cita):
+    Palabra_ingresar=""
+    Posicion_comando=1
+    Palabra_ingresar+=Lista_de_comando_cita[Posicion_comando]
+    Posicion_comando=2
+    while Posicion_comando<len(Lista_de_comando_cita):
+        Palabra_ingresar+=" "+Lista_de_comando_cita[Posicion_comando]
+        Posicion_comando+=1
+    Datos[Valor_asignado]=[Palabra_ingresar]
     return(Datos)
 
 def Proceso_crear_una_cita():
@@ -600,7 +607,6 @@ def Proceso_crear_una_cita():
     Datos={}
     while Bloqueo1_crear_cita=="bloqueado":
         Pregunta_cita=str(input(""))
-        posicion_comando=0
         Lista_de_comando_cita=Pregunta_cita.split(" ")
         for Comando in Lista_de_comando_cita:
             if Comando=="ayuda":
@@ -613,61 +619,63 @@ Comando Actuales:
                 print("!Finalizado¡")
                 Bloqueo1_crear_cita="desbloqueado"
                 Documento_escribir_citas=open("[Datos_Citas].txt","a")
-                Documento_escribir_citas.write(str(Datos))
+                Datos=str(Datos)
+                Datos+="\n"
+                Documento_escribir_citas.write(Datos)
                 Documento_escribir_citas.close()
             try:
                 if Comando=="nombre":
-                    formato_crear_cita("Nombre",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Nombre",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="apellido":
-                    formato_crear_cita("Apellido",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Apellido",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="empresa":
-                    formato_crear_cita("Empresa",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Empresa",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="cargo":
-                    formato_crear_cita("Cargo",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Cargo",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="departamento":
-                    formato_crear_cita("Departamento",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Departamento",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="telefono":
-                    formato_crear_cita("Telefono",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Telefono",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="direccion":
-                    formato_crear_cita("Direccion",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Direccion",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="ciudad":
-                    formato_crear_cita("Ciudad",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Ciudad",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="correo":
-                    formato_crear_cita("Correo",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Correo",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="nit":
-                    formato_crear_cita("Nit",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Nit",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
             try:
                 if Comando=="observaciones":
-                    formato_crear_cita("Observaciones",Datos,Lista_de_comando_cita,posicion_comando)
+                    formato_crear_cita("Observaciones",Datos,Lista_de_comando_cita)
             except:
                 print("!ERROR DE SINTAXIS!")
         try:
@@ -680,6 +688,10 @@ Comando Actuales:
                 Proceso_mostrar_categorias_llenas(Datos)
         except:
             print("!ERROR DE SINTAXIS!")
+#--------------------------proceso--2-----borrar---------cita-------------------------------------------------------
+
+def Proceso_borrar_una_cita():
+    print("trabajando en ello")
 
 #___________________________________________menu_citas______________________________________________________________
 
@@ -692,6 +704,7 @@ def Proceso_cita():
             print("""Actualmente usted se encuentra en el menu citas.
 Comandos Actuales:
 *Crear cita
+*Borrar cita
 """)
         if Lista_de_comando2[0]=="salir":
             Bloqueo_proceso_documento1="desbloqueado"
@@ -699,6 +712,11 @@ Comandos Actuales:
         try:
             if Lista_de_comando2[0]=="crear"and Lista_de_comando2[1]=="cita":
                 Proceso_crear_una_cita()
+        except:
+            print("!ERROR DE SINTAXIS!")
+        try:
+            if Lista_de_comando2[0]=="borrar"and Lista_de_comando2[1]=="cita":
+                Proceso_borrar_una_cita()
         except:
             print("!ERROR DE SINTAXIS!")
 

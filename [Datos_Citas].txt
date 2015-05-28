@@ -1,1 +1,1 @@
-{'Apellido': ['rodrigues'], 'Nombre': ['juan']}
+{'Empresa': ['APC'], 'Ciudad': ['cali'], 'Cargo': ['asistente de mercadeo'], 'Correo': ['Juan_R97@hotmail.com'], 'Telefono': ['3393939'], 'Nombre': ['juan'], 'Departamento': ['Mercadeo'], 'Nit': ['998475945335'], 'Apellido': ['Rojas'], 'Direccion': ['calle 11N°50-39'], 'Observaciones': ['venta']}
